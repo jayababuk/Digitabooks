@@ -37,6 +37,13 @@ public class User {//not a spring bean
 		this.id = i;
 		
 	}
+	public void setDob(String d ) {
+		this.dob=d;
+		
+	}
+	public String getDob() {
+		return this.dob;
+	}
 	public void setName(String string) {
 		this.name = string;
 		

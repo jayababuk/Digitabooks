@@ -1,8 +1,11 @@
 package com.hnt.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,6 +15,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.hnt.UserRepository;
 import com.hnt.entity.User;
+
+
+
 @ExtendWith(MockitoExtension.class)
 class UserServiceTest {
 	@InjectMocks
@@ -36,6 +42,22 @@ class UserServiceTest {
 			user.setName("Ram");
 			service.save(user);
 		});
+	}
+
+	@Test
+	void testGet() {
+		Iterable<User> user = new ArrayList<>();
+		when(service.getUser()).thenReturn(user);
+		Iterable<User> iterableUserReturned =service.getUser();
+		assertEquals(iterableUserReturned, user);
+	}
+	@Test
+	void testdelete() {
+		User user =new User();
+		user.setId(1);
+		user.setName("joy");
+		service.delete(1);
+		assertEquals(1, user.getId());
 	}
 
 }

@@ -10,7 +10,7 @@ import com.hnt.entity.User;
 
 public class RestClient {
 
-	private static final String URL = "http://localhost:8080/user";
+	private static final String URL = "http://localhost:8010/user";
 
 	public static void main(String[] args) {
 //		get();

@@ -3,6 +3,8 @@ package com.hnt.controller;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -27,5 +29,27 @@ class UserControllerTest {
 		Integer savedUserId = controller.saveUser1(user);
 		assertEquals(1, savedUserId);
 	}
+	
+	@Test
+	void testgetUser() {
+		Iterable<User> user =new ArrayList<>();
+		when(controller.getUser()).thenReturn(user);
+		Iterable<User> iterableUserReturned = controller.getUser();
+		assertEquals(iterableUserReturned, user);
+		
+	}
+	
+	@Test
+	void testdelete() {
+		User user = new User();
+		user.setId(1);
+		user.setName("rajj");
+		service.delete(1);
+		assertEquals(1, user.getId());
+		
+	}
+		
+	}
+	
 
-}
+
